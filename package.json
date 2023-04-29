@@ -1,0 +1,24 @@
+{
+  "name": "static-web-quickstart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "esbuild": "^0.16.17",
+    "inliner": "^1.13.1",
+    "preact": "^10.11.3",
+    "pullstate": "^1.25.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.2",
+    "esbuild": "^0.14.39",
+    "esbuild-plugin-alias": "^0.2.1",
+    "prettier": "^2.7.1",
+    "tailwindcss": "^3.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    padding: 100px;
+}
+
+h1 {
+    @apply text-lg;
+}
+
+button {
+    /* @apply mt-1 mb-1 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded; */
+    @apply py-[.688rem] px-4 inline-flex justify-center items-center gap-2 rounded-md border-2 border-gray-200 font-semibold text-blue-500 hover:text-white hover:bg-blue-500 hover:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:border-gray-700 dark:hover:border-blue-500;
+}
+
+input {
+    @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none;
+}
+
+ol {
+    @apply list-decimal list-inside text-gray-900 dark:text-gray-200;
+}
+
+a {
+    @apply text-blue-500;
+}

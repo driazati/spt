@@ -1,0 +1,36 @@
+main: |
+  # parallel
+  # dep: serve
+  # dep: socket-server
+  # dep: file-watcher
+  # dep: js
+  # dep: css
+
+serve: |
+  # basic HTTP server
+  python dev/http-server.py
+
+socket-server: |
+  # run the websocket server
+  python dev/reload-server.py
+
+file-watcher: |
+  # watch: find www -type f
+  bash dev/trigger_reload.sh
+
+js: |
+  # watch: find js
+  # catch: js-fail
+  ./node_modules/.bin/esbuild js/script.jsx --jsx-factory=h --jsx-fragment=Fragment --bundle --outfile=www/dist/script.dist.js --sourcemap
+
+js-fail: |
+  echo 'writing error to www/dist/script.dist.js'
+  NEW_ERR=$(echo $ERROR | sed 's/`/\\`/g' | sed 's/\$/\\$/g')
+  echo "console.error(\`$NEW_ERR\`)" > www/dist/script.dist.js
+
+css: |
+  npx tailwindcss --input css/styles.css -o www/dist/styles.dist.css --watch
+
+format: |
+  black .
+  ./node_modules/.bin/prettier ./static -w
