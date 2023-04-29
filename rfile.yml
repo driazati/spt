@@ -15,21 +15,21 @@ socket-server: |
   python dev/reload-server.py
 
 file-watcher: |
-  # watch: find www -type f
+  # watch: find docs -type f
   bash dev/trigger_reload.sh
 
 js: |
   # watch: find js
   # catch: js-fail
-  ./node_modules/.bin/esbuild js/script.jsx --jsx-factory=h --jsx-fragment=Fragment --bundle --outfile=www/dist/script.dist.js --sourcemap
+  ./node_modules/.bin/esbuild js/script.jsx --jsx-factory=h --jsx-fragment=Fragment --bundle --outfile=docs/dist/script.dist.js --sourcemap
 
 js-fail: |
-  echo 'writing error to www/dist/script.dist.js'
+  echo 'writing error to docs/dist/script.dist.js'
   NEW_ERR=$(echo $ERROR | sed 's/`/\\`/g' | sed 's/\$/\\$/g')
-  echo "console.error(\`$NEW_ERR\`)" > www/dist/script.dist.js
+  echo "console.error(\`$NEW_ERR\`)" > docs/dist/script.dist.js
 
 css: |
-  npx tailwindcss --input css/styles.css -o www/dist/styles.dist.css --watch
+  npx tailwindcss --input css/styles.css -o docs/dist/styles.dist.css --watch
 
 format: |
   black .

@@ -16,7 +16,7 @@ window.location.reload();
 """
 SCRATCH = Path(tempfile.gettempdir()) / "livereload.html"
 REPO_ROOT = Path(__file__).resolve().parent.parent
-WWW_DIR = REPO_ROOT / "www"
+WWW_DIR = REPO_ROOT / "docs"
 
 
 def add_live_js(content: str) -> str:
