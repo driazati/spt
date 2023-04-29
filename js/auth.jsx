@@ -2,7 +2,7 @@ import { h, Fragment, render, Component } from "preact";
 import { State } from "./state";
 import { generateRandomString, generateCodeChallenge } from "./utils";
 const clientId = "6c33c75c94c44805bcf8fee81d8c9fa5";
-const redirectUri = window.location.href.replace(/\/$/, "");
+const redirectUri = window.location.href.split("?")[0].replace(/\/$/, "");
 console.log(window.location.href);
 const spotifyEndpoint = "https://api.spotify.com/v1";
 const spotifyAuthUrl = "https://accounts.spotify.com/authorize";

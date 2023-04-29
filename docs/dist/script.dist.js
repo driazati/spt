@@ -1934,7 +1934,7 @@ If this error occurred on the client:
       var import_state5 = __toESM(require_state());
       init_utils();
       var clientId = "6c33c75c94c44805bcf8fee81d8c9fa5";
-      var redirectUri = window.location.href.replace(/\/$/, "");
+      var redirectUri = window.location.href.split("?")[0].replace(/\/$/, "");
       console.log(window.location.href);
       var spotifyAuthUrl = "https://accounts.spotify.com/authorize";
       var Auth2 = class extends d {
